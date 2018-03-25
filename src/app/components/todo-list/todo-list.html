@@ -1,0 +1,25 @@
+<div ng-cloak ng-controller="TodoController">
+  <div class="container">
+    <div ng-if="listOfTodo.length">
+      <button class="btn btn-default mb-2" ng-class="{active:sortTodosByName}" ng-click="sortTodosName()">Sort by first letter of title</button>
+      <button class="btn btn-default mb-2" ng-class="{active:sortTodosByDate}" ng-click="sortTodosDates()">Sort by date</button>
+      <form class="form-group" name="filterTodoForm">
+        <input class="form-control" placeholder="Enter number of days for filtering tasks" name="filterDays" ng-model="filterDays"></input>
+        <button class="btn btn-default" ng-click="filterTodos(filterTodoForm.filterDays.$modelValue)">Filter</button>
+      </form>
+      <div class="container" ng-repeat="todo in listOfTodo | orderBy:sortTodosByDate | orderBy:sortTodosByName ">
+      <div class="border p-2">
+        <div class="checkbox">
+          <span><input type="checkbox" ng-model="todo.done"></span>
+            <span ng-click="editTask($index)">{{ todo.title }}</span>
+        </div>
+          <div>
+            {{ todo.text }}
+          </div>
+            {{ todo.date }}
+      </div>
+      </div>
+    </div>
+    <div ng-if="!listOfTodo.length">No tasks!</div>
+  </div>
+</div>

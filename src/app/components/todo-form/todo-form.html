@@ -1,0 +1,15 @@
+<div ng-cloak ng-controller="TodoController">
+    <div class="container">
+      <form name="addTodoForm">
+          <input class="btn btn-default" placeholder="Title" name="title" ng-model="title">
+          <input class="btn btn-default" placeholder="Text" ng-minlength="20" name="text" ng-model="text" required>
+          <div class="text-danger" ng-show="addTodoForm.text.$touched && addTodoForm.text.$invalid">
+            Text is mandatory and must be minimum 20 characters long.
+          </div>
+          <div>
+            <br>
+            <button class="btn btn-default" ng-disabled="addTodoForm.text.$invalid" ng-click="addNewTask()">Add/Edit task</button>
+          </div>
+      </form>
+    </div>
+</div>
