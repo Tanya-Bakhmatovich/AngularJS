@@ -1,0 +1,17 @@
+<div class="m-3" ng-cloak ng-controller="TodoController">
+    <div ng-if="listOfTodoNew.length">
+      <div ng-repeat="todo in listOfTodoNew">
+        <div class="border p-2">
+          <input type="checkbox" ng-model="todo.done">
+          <div ng-click="">
+            <span>{{ todo.title }}</span>
+          </div>
+          <div>
+            {{ todo.text }}
+          </div>
+            {{ todo.date }}
+        </div>
+      </div>
+    <div ng-if="!listOfTodoNew.length">No tasks!</div>
+  </div>
+</div>
